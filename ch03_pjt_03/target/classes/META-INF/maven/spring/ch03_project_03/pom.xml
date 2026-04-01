@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>spring</groupId>
+  <artifactId>ch03_project_03</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+
+	<!--spring-context 모듈-->
+	<dependencies>
+		<!-- Source: https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>5.2.9.RELEASE</version>
+		    <scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>21</source> <!--컴파일 시 JDK21버전으로 컴파일-->
+					<target>21</target>
+					<encoding>utf-8</encoding> <!--자바 소스 UTF-8로 인코딩-->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

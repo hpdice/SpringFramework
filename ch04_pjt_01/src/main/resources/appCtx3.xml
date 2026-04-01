@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- EMS 정보 설정 파일 -->
+
+<bean id = "emsInformationService"
+	class = "ch04_pjt_01.ems.member.service.EMSInformationService">
+	
+	<property name="copyRight">
+		<value>COPYRIGHT(C) 2022 EMS CO.,LTD.ALL RIGHT RESERVED, CONTACT MASTER FOR MORE INFORMATION</value>
+	</property>
+	
+	<property name="ver">
+		<value>The Version is 1.0</value>
+	</property>
+	
+	<property name="sYear">
+		<value>2022</value>
+	</property>
+	
+	<property name="sMonth">
+		<value>3</value>
+	</property>
+	
+	<property name="sDay">
+		<value>1</value>
+	</property>
+	
+	<property name="eYear">
+		<value>2022</value>
+	</property>
+	
+	<property name="eMonth">
+		<value>4</value>
+	</property>
+	
+	<property name="eDay">
+		<value>30</value>
+	</property>
+	
+	<property name="info" value="Education Management System program was developed in 2022."/>
+	<property name="developers">
+		<list>
+			<value>Cheney.</value>
+			<value>Eloy.</value>
+			<value>Jasper.</value>
+			<value>Dillon.</value>
+			<value>Kian.</value>
+		</list>
+	</property>
+	
+	<property name="adminstrators">
+		<map>
+			<entry>
+				<key>
+					<value>Cheney</value>
+				</key>
+				<value>cheney@SpringPjt.org</value>
+			</entry>
+			
+			<entry>
+				<key>
+					<value>Jasper</value>
+				</key>
+				<value>jasper@SpringPjt.org</value>
+			</entry>
+		</map>
+	</property>
+	
+	<property name="dbInfos">
+		<map>
+			<entry>
+				<key>
+					<value>dev</value>
+				</key>
+				<ref bean="dev_DBConnectionInfoDev" />
+				
+				</entry>
+			
+			<entry>
+				<key>
+					<value>real</value>
+				</key>
+				<ref bean="real_DBConnectionInfoDev" />
+			</entry>
+		</map>
+	</property>
+</bean>
+
+</beans>

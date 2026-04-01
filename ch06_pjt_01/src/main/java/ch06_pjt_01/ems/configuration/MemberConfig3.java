@@ -1,0 +1,72 @@
+package ch06_pjt_01.ems.configuration;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import ch06_pjt_01.ems.member.DBConnectionInfo;
+import ch06_pjt_01.ems.member.dao.StudentDao;
+import ch06_pjt_01.ems.member.service.EMSInformationService;
+import ch06_pjt_01.ems.member.service.PrintStudentInformationService;
+import ch06_pjt_01.ems.member.service.StudentAllSelectService;
+import ch06_pjt_01.ems.member.service.StudentDeleteService;
+import ch06_pjt_01.ems.member.service.StudentModifyService;
+import ch06_pjt_01.ems.member.service.StudentRegisterService;
+import ch06_pjt_01.ems.member.service.StudentSelectService;
+import ch06_pjt_01.ems.utils.InitSampleData;
+
+@Configuration
+// 에너테이션을 이용한 스프링 설정 파일 명시
+public class MemberConfig3 {
+	
+	@Autowired
+	DBConnectionInfo dev_DBConnectionInfoDev;
+	
+	@Autowired
+	@Qualifier("real_DBConnectionInfoDev")
+	DBConnectionInfo real_DBConnectionInfoDev;
+	
+	@Bean
+	public EMSInformationService emsInformationService() {
+
+		EMSInformationService emsInformationService = new EMSInformationService();
+		emsInformationService.setInfo("Education Management System program was developed in 2022.");
+		emsInformationService.setCopyRight("COPYRIGHT(C) 2022 EMS CO.,LTD.ALL RIGHT RESERVED, CONTACT MASTER FOR MORE INFORMATION");
+		emsInformationService.setVer("The Version is 1.0");
+		emsInformationService.setsYear(2022);
+		emsInformationService.setsMonth(3);
+		emsInformationService.setsDay(1);
+		emsInformationService.seteYear(2022);
+		emsInformationService.seteMonth(4);
+		emsInformationService.seteDay(30);
+
+		List<String> developers = new ArrayList<String>();
+		developers.add("Cheney,");
+		developers.add("Eloy,");
+		developers.add("Jasper,");
+		developers.add("Dillon,");
+		developers.add("Kian,");
+		emsInformationService.setDevelopers(developers);
+
+		Map<String,String> adminStrators = new HashMap<String,String>();
+		adminStrators.put("Cheney", "cheney@springPjt.org");
+		adminStrators.put("Jasper", "jasper@springPjt.org");
+		emsInformationService.setAdminstrators(adminStrators);
+
+		Map<String,DBConnectionInfo> dbInfos = new HashMap<String,DBConnectionInfo>();
+		
+		// MemberConfig2 파일을 분리했기 때문에 MemberConfig3 파일에서는 선언된 메소드를 찾을 수 없음 --> 에러 발생
+		// @Autowired를 통해 의존 객체 자동 주입
+		dbInfos.put("dev", dev_DBConnectionInfoDev);
+		dbInfos.put("real", real_DBConnectionInfoDev);
+		emsInformationService.setDbInfos(dbInfos);
+
+		return emsInformationService;
+	}
+}

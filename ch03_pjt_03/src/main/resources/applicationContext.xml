@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Spring이 클래스를 객체(Bean)으로 생성하고 관리 -->
+	<bean id="cAdd" class="ch03_project_03.CalAdd" />
+	<bean id="cSub" class="ch03_project_03.CalSub" />
+	<bean id="cMul" class="ch03_project_03.CalMul" />
+	<bean id="cDiv" class="ch03_project_03.CalDiv" />
+	
+	<bean id="myCalculator" class="ch03_project_03.MyCalculator" />
+	
+	<bean id="calAssembler" class="ch03_project_03.CalAssembler" > 
+	<!-- bean 태그는 /> 로 닫으면 완전종료 의미 " 조심할것 "-->
+	<!-- 객체 생성 시 필요한 의존성을 생성자의 인자로 전달 -->
+		<constructor-arg ref="myCalculator" />
+		<constructor-arg ref="cAdd" />
+		<constructor-arg ref="cSub" />
+		<constructor-arg ref="cMul" />
+		<constructor-arg ref="cDiv" />
+	</bean>
+</beans>

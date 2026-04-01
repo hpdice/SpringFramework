@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+	xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Spring이 클래스를 객체(Bean)으로 생성하고 관리 -->
+	<bean id="americano" class="ch03_pjt_coffee.Americano" />
+	<bean id="latte" class="ch03_pjt_coffee.Latte" />
+	
+	<bean id="person1" class="ch03_pjt_coffee.Person">
+		<constructor-arg ref="americano" />
+		<!-- americano 의존성 부여 
+			아메리카노를 마시는 사람1 -->
+	</bean>
+	
+	<bean id="person2" class="ch03_pjt_coffee.Person">
+		<constructor-arg ref="latte" />
+		<!-- 라떼를 마시는 사람 -->
+	</bean>
+</beans>
