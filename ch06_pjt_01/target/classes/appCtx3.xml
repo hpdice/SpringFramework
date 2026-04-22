@@ -7,7 +7,7 @@
 <!-- EMS 정보 설정 파일 -->
 
 <bean id = "emsInformationService"
-	class = "ch04_pjt_01.ems.member.service.EMSInformationService">
+	class = "ch06_pjt_01.ems.member.service.EMSInformationService">
 	
 	<property name="copyRight">
 		<value>COPYRIGHT(C) 2022 EMS CO.,LTD.ALL RIGHT RESERVED, CONTACT MASTER FOR MORE INFORMATION</value>

@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-		https://www.springframework.org/schema/beans/spring-beans.xsd">
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+		
+	<context:annotation-config/>
 
 	<import resource="classpath:appCtx2.xml"/>
 	<import resource="classpath:appCtx3.xml"/>
 <!-- 샘플 데이터 , DAO ,서비스 빈을 정의하는 파일 -->
 
-<bean id="initSampleData" class="ch04_pjt_01.ems.utils.InitSampleData">
+<bean id="initSampleData" class="ch06_pjt_01.ems.utils.InitSampleData">
 	<property name="sNums">
 		<array>
 			<value>hbs001</value>
@@ -80,36 +85,33 @@
 	</property>
 </bean>
 
-<bean id="studentDao" class="ch04_pjt_01.ems.member.dao.StudentDao" />
+<bean id="studentDao" class="ch06_pjt_01.ems.member.dao.StudentDao" />
+<bean id="studentDao1" class="ch06_pjt_01.ems.member.dao.StudentDao" >
+	<qualifier value="stdDao" />
+</bean>
 
 <bean id="studentRegisterService"
-	class="ch04_pjt_01.ems.member.service.StudentRegisterService">
-	<constructor-arg ref="studentDao" />
+	class="ch06_pjt_01.ems.member.service.StudentRegisterService">
 </bean>
 
 <bean id="studentModifyService"
-	class="ch04_pjt_01.ems.member.service.StudentModifyService">
-	<constructor-arg ref="studentDao" />
+	class="ch06_pjt_01.ems.member.service.StudentModifyService">
 </bean>
 
 <bean id="studentDeleteService"
-	class="ch04_pjt_01.ems.member.service.StudentDeleteService">
-	<constructor-arg ref="studentDao" />
+	class="ch06_pjt_01.ems.member.service.StudentDeleteService">
 </bean>
 
 <bean id="studentSelectService"
-	class="ch04_pjt_01.ems.member.service.StudentSelectService">
-	<constructor-arg ref="studentDao" />
+	class="ch06_pjt_01.ems.member.service.StudentSelectService">
 </bean>
 
 <bean id="studentAllSelectService"
-	class="ch04_pjt_01.ems.member.service.StudentAllSelectService">
-	<constructor-arg ref="studentDao" />
+	class="ch06_pjt_01.ems.member.service.StudentAllSelectService">
 </bean>
 
 <bean id="printStudentInformationService"
-	class="ch04_pjt_01.ems.member.service.PrintStudentInformationService">
-	<constructor-arg ref="studentAllSelectService" />
+	class="ch06_pjt_01.ems.member.service.PrintStudentInformationService">
 </bean>
 
 </beans>

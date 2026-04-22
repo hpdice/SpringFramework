@@ -21,6 +21,7 @@ import ch06_pjt_01.ems.utils.InitSampleData;
 
 @Configuration
 // 에너테이션을 이용한 스프링 설정 파일 명시
+// XML을 이용하지 않은 스프링 설정 파일 
 public class MemberConfig {
 
 	@Bean

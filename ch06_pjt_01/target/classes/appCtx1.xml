@@ -6,7 +6,7 @@
 
 <!-- 샘플 데이터 , DAO ,서비스 빈을 정의하는 파일 -->
 
-<bean id="initSampleData" class="ch04_pjt_01.ems.utils.InitSampleData">
+<bean id="initSampleData" class="ch06_pjt_01.ems.utils.InitSampleData">
 	<property name="sNums">
 		<array>
 			<value>hbs001</value>

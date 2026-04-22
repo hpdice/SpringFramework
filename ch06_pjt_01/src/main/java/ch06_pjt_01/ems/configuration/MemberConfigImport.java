@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -51,7 +52,6 @@ public class MemberConfigImport {
 	public StudentDao studentDao() {
 		return new StudentDao();
 	}
-
 	/*
 	 * 다음 빈과 동일한 역할
 	 * <bean id = "studentDao" class="ch06_pjt_01.ems.member.dao.StudentDao"/>

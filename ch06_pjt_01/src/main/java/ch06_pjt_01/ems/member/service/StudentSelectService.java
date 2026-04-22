@@ -1,10 +1,19 @@
 package ch06_pjt_01.ems.member.service;
 
+import javax.annotation.Resource;
+
 import ch06_pjt_01.ems.member.Student;
 import ch06_pjt_01.ems.member.dao.StudentDao;
 
 public class StudentSelectService {
+
+	@Resource(name="studentDao1")
+	// 별명 아닌 bean id 
 	private StudentDao studentDao;
+	
+	public StudentSelectService() {
+		System.out.println("Default Constructor");
+	}
 
 	public StudentSelectService(StudentDao studentDao) {
 		this.studentDao = studentDao;

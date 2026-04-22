@@ -26,6 +26,7 @@ import ch06_pjt_01.ems.utils.InitSampleData;
 public class MemberConfig3 {
 	
 	@Autowired
+	@Qualifier("dev_DBConnectionInfoDev")
 	DBConnectionInfo dev_DBConnectionInfoDev;
 	
 	@Autowired
