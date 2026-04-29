@@ -16,7 +16,7 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분 ss�
 sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
 String currentTime = sdf.format(now);
 %>
-<h1>Hello World!</h1>
+<h1>${message}</h1>
 <p>현재 서버 시간은 <%= currentTime %> 입니다.</p>
 </body>
 </html>
